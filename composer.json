@@ -17,6 +17,8 @@
         "laravel/jetstream": "^1.5",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
+        "laravel/vapor-core": "^2.9",
+        "laravel/vapor-ui": "^0.0.11",
         "tightenco/ziggy": "^0.9.4"
     },
     "require-dev": {

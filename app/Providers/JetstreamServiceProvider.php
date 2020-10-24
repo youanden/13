@@ -59,5 +59,11 @@ class JetstreamServiceProvider extends ServiceProvider
             'create',
             'update',
         ])->description(__('Editor users have the ability to read, create, and update.'));
+
+        Jetstream::role('client', __('Client'), [
+            'read',
+            'create',
+            'update',
+        ])->description(__('Clients can create areas and subscribe to areas.'));
     }
 }

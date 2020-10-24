@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9aad45fa3f0cf2585f5b1c619605b57e",
+    "content-hash": "86a0434d72cb4ff5b93b4a5734982faa",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -751,6 +751,99 @@
             "time": "2020-10-22T13:57:20+00:00"
         },
         {
+            "name": "geo-io/interface",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geo-io/interface.git",
+                "reference": "cf46fe7b013de20ab8b601238c7d91b480810644"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geo-io/interface/zipball/cf46fe7b013de20ab8b601238c7d91b480810644",
+                "reference": "cf46fe7b013de20ab8b601238c7d91b480810644",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GeoIO\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
+                }
+            ],
+            "description": "Geo I/O base interfaces.",
+            "keywords": [
+                "geo",
+                "geometry",
+                "io"
+            ],
+            "time": "2016-07-28T07:17:02+00:00"
+        },
+        {
+            "name": "geo-io/wkb-parser",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/geo-io/wkb-parser.git",
+                "reference": "cceee8f4e8b2058f3f1a0372c930140f23fe1ee1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/geo-io/wkb-parser/zipball/cceee8f4e8b2058f3f1a0372c930140f23fe1ee1",
+                "reference": "cceee8f4e8b2058f3f1a0372c930140f23fe1ee1",
+                "shasum": ""
+            },
+            "require": {
+                "geo-io/interface": "~1.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GeoIO\\WKB\\Parser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com"
+                }
+            ],
+            "description": "Well-known binary (WKB) Parser.",
+            "keywords": [
+                "geo",
+                "geometry",
+                "io",
+                "parser",
+                "wkb"
+            ],
+            "time": "2015-06-30T04:19:13+00:00"
+        },
+        {
             "name": "graham-campbell/result-type",
             "version": "v1.0.1",
             "source": {
@@ -801,6 +894,64 @@
                 "result"
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "grimzy/laravel-mysql-spatial",
+            "version": "5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/grimzy/laravel-mysql-spatial.git",
+                "reference": "b89ed02ee4f9113a9fa952ae5f0e78bb5e82aa2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/grimzy/laravel-mysql-spatial/zipball/b89ed02ee4f9113a9fa952ae5f0e78bb5e82aa2a",
+                "reference": "b89ed02ee4f9113a9fa952ae5f0e78bb5e82aa2a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pdo": "*",
+                "geo-io/wkb-parser": "^1.0",
+                "illuminate/database": "^8.0",
+                "jmikola/geojson": "^1.0",
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.5",
+                "laravel/browser-kit-testing": "^2.0",
+                "laravel/laravel": "^8.0",
+                "mockery/mockery": "^1.3",
+                "phpunit/phpunit": "~6.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Grimzy\\LaravelMysqlSpatial\\SpatialServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Grimzy\\LaravelMysqlSpatial\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Joseph Estefane",
+                    "email": "estefanejoe@gmail.com"
+                }
+            ],
+            "description": "MySQL spatial data types extension for Laravel.",
+            "time": "2020-10-17T07:28:10+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1240,6 +1391,59 @@
                 "useragent"
             ],
             "time": "2020-06-13T08:05:20+00:00"
+        },
+        {
+            "name": "jmikola/geojson",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmikola/geojson.git",
+                "reference": "6ec3016cc0215667b7775f6ead7bd0337ad66eee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmikola/geojson/zipball/6ec3016cc0215667b7775f6ead7bd0337ad66eee",
+                "reference": "6ec3016cc0215667b7775f6ead7bd0337ad66eee",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "GeoJson\\": "src/"
+                },
+                "classmap": [
+                    "stubs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Mikola",
+                    "email": "jmikola@gmail.com"
+                }
+            ],
+            "description": "GeoJSON implementation for PHP",
+            "homepage": "https://github.com/jmikola/geojson",
+            "keywords": [
+                "geo",
+                "geojson",
+                "geospatial"
+            ],
+            "time": "2015-09-27T15:35:21+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -5403,6 +5607,61 @@
                 "dump"
             ],
             "time": "2020-09-18T14:27:32+00:00"
+        },
+        {
+            "name": "thomasjohnkane/snooze",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomasjohnkane/snooze.git",
+                "reference": "ea2539ff7ac2e46d4ac473f6bc94c7a320319986"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomasjohnkane/snooze/zipball/ea2539ff7ac2e46d4ac473f6bc94c7a320319986",
+                "reference": "ea2539ff7ac2e46d4ac473f6bc94c7a320319986",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~6.0 || ~7.0 || ~8.0",
+                "php": ">=7.2.5"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~4.0|| ~5.0 || ~6.0",
+                "phpunit/phpunit": "^9.0",
+                "timacdonald/log-fake": "^1.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Thomasjohnkane\\Snooze\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Thomasjohnkane\\Snooze\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Kane",
+                    "email": "thomasjohnkane@gmail.com"
+                }
+            ],
+            "description": "Schedule future notifications and reminders in Laravel",
+            "keywords": [
+                "delayed notifications",
+                "notifications",
+                "scheduled",
+                "snooze"
+            ],
+            "time": "2020-09-09T23:58:38+00:00"
         },
         {
             "name": "tightenco/ziggy",

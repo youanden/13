@@ -38,4 +38,22 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
+
+
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
+
+
+    public function areas()
+    {
+        return $this->hasMany(Area::class);
+    }
+
+
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
 }

@@ -178,6 +178,7 @@ return [
         App\Providers\VaporUiServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        Grimzy\LaravelMysqlSpatial\SpatialServiceProvider::class,
 
     ],
 

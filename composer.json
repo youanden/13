@@ -18,6 +18,7 @@
         "laravel/jetstream": "^1.5",
         "laravel/sanctum": "^2.6",
         "laravel/scout": "^8.4",
+        "laravel/telescope": "^4.2",
         "laravel/tinker": "^2.0",
         "laravel/vapor-core": "^2.9",
         "laravel/vapor-ui": "^0.0.11",

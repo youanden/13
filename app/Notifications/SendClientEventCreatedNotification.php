@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\Http;
 
 class SendClientEventCreatedNotification extends Notification
 {
@@ -22,7 +23,7 @@ class SendClientEventCreatedNotification extends Notification
      */
     public function __construct($place)
     {
-        $this->placeName = $place['name'];
+//        $this->placeName = $place['name'];
     }
 
     /**
@@ -33,7 +34,7 @@ class SendClientEventCreatedNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -45,25 +46,11 @@ class SendClientEventCreatedNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject($this->placeName ? $this->placeName . ' has scheduled a food drive in your pickup area!' : 'A Food Drive in your pickup area has been scheduled!')
+                    ->subject('A Food Drive in your pickup area has been scheduled!')
                     ->line('An agency in your pickup area has scheduled a Food Drive!')
                     ->action('See Pickup Instructions', url('/'))
                     ->line('Thank you for using Food Help Network! If you want to get involved and help us with our mission, click below:')
                     ->line('Get Involved: ' .  url('https://feedingsouthflorida.org/'));
-    }
-
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
-    public function toSMS($notifiable)
-    {
-        return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
     }
 
     /**

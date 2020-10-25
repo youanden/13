@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\AnonymousNotifiable;
+use Illuminate\Support\Facades\Http;
 use Thomasjohnkane\Snooze\ScheduledNotification;
 
 class Event extends Model
@@ -55,6 +56,15 @@ class Event extends Model
                 new SendClientEventCreatedNotification($this->place()->get()), // Notification
                 Carbon::now()->addSeconds(5) // Send At
             );
+
+            // For Hackathon Time-Constraint Reasons
+
+            $response = Http::post('https://us-central1-aiot-fit-xlab.cloudfunctions.net/sendsms', [
+                'message' => 'Hi! A food drive event has been scheduled for your pickup area!',
+                'receiver' => '+13059986726',
+                'token' => 'arraysfrom13'
+            ]);
+
         });
 
         return $matchedUsers;

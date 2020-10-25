@@ -1,10 +1,23 @@
 <template>
-    <input class="form-input rounded-md shadow-sm" :value="value" @input="$emit('input', $event.target.value)" ref="input">
+    <input :class="[baseClasses, additionalClasses]" :value="value" @input="$emit('input', $event.target.value)" ref="input">
 </template>
 
 <script>
     export default {
-        props: ['value'],
+        props: [
+            'value',
+            {
+                additionalClasses: {
+                    type: String,
+                    default: ""
+                }
+            }
+        ],
+        data () {
+            return {
+                baseClasses: "form-input rounded-md shadow-sm"
+            }
+        },
 
         methods: {
             focus() {

@@ -39,7 +39,8 @@ class ClientNotificationsTest extends TestCase
 
         $agencyUser = User::firstOrNew([
             "name" => "Agency 1",
-            "email" => "agency1@example.com"
+            "email" => "agency1@example.com",
+            "phone" => "123"
         ], [
             "role" => "admin",
             "password" => bcrypt(123456)
@@ -55,6 +56,7 @@ class ClientNotificationsTest extends TestCase
         $user = User::firstOrNew([
             "name" => "Client 1",
             "email" => "client1@example.com",
+            "phone" => "234"
         ], [
             "role" => "client",
             "password" => bcrypt(123456)

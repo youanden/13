@@ -54,6 +54,44 @@
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.error('email')" class="mt-2" />
             </div>
+
+            <!-- Phone -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="phone" value="Phone" />
+                <jet-input id="phone" type="tel" class="mt-1 block w-full" v-model="form.phone" />
+                <jet-input-error :message="form.error('phone')" class="mt-2" />
+            </div>
+
+            <!-- Notification Preferences -->
+
+            <!-- I'd like to be contacted to help volunteer -->
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label class="mb-2">Notification Preferences</jet-label>
+                <div class="relative flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="volunteer_preferences" type="checkbox" class="mt-1 block form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" v-model="form.volunteer_preferences" />
+                    </div>
+                    <div class="ml-3 text-sm leading-5">
+                        <jet-label for="volunteer_preferences" class="font-medium text-gray-700" value="Volunteering" />
+                        <p class="text-gray-500">I'd like to be contacted to help volunteer</p>
+                    </div>
+                    <jet-input-error :message="form.error('volunteer_preferences')" class="mt-2" />
+                </div>
+            </div>
+
+            <!-- I'd like to receive notifications for food drives -->
+            <div class="col-span-6 sm:col-span-4">
+                <div class="relative flex items-start">
+                    <div class="flex items-center h-5">
+                        <input id="notify_food_drive" type="checkbox" class="mt-1 block form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out" v-model="form.notify_food_drive" />
+                    </div>
+                    <div class="ml-3 text-sm leading-5">
+                        <jet-label for="notify_food_drive" class="font-medium text-gray-700" value="Food Drive Events" />
+                        <p class="text-gray-500">I'd like to be contacted to about food drives in my chosen area</p>
+                    </div>
+                    <jet-input-error :message="form.error('notify_food_drive')" class="mt-2" />
+                </div>
+            </div>
         </template>
 
         <template #actions>
@@ -96,6 +134,9 @@
                     '_method': 'PUT',
                     name: this.user.name,
                     email: this.user.email,
+                    phone: this.user.phone,
+                    volunteer_preferences: this.user.volunteer_preferences,
+                    notify_food_drive: this.user.notify_food_drive,
                     photo: null,
                 }, {
                     bag: 'updateProfileInformation',

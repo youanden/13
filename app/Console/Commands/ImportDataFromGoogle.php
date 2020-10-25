@@ -6,6 +6,7 @@ use App\Models\Place;
 use Geocodio\Geocodio;
 use Illuminate\Console\Command;
 use Grimzy\LaravelMysqlSpatial\Types\Point;
+use Illuminate\Database\QueryException;
 
 class ImportDataFromGoogle extends Command
 {
@@ -115,7 +116,7 @@ class ImportDataFromGoogle extends Command
      */
     protected function saveData(array $element, string $compiledAddress, array $coordinates)
     {
-        $place = Place::firstOrCreate([
+        $place = Place::firstOrNew([
             'id' => trim($element[0]),
             'name' => trim($element[1]),
             'tel' => trim($element[8]),
@@ -129,7 +130,11 @@ class ImportDataFromGoogle extends Command
             $place->location = new Point($coordinates['lat'], $coordinates['lng']);
         }
 
-        $place->save();
+        try {
+            $place->save();
+        } catch(QueryException $e) {
+            $this->error($e);
+        }
     }
 
     /**

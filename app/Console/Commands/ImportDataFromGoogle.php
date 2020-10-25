@@ -60,6 +60,7 @@ class ImportDataFromGoogle extends Command
 
         $this->initGeoCoder($geocoderKey);
 
+        echo "Requesting Google Sheet..." . PHP_EOL;
         $googleSheetData = $this->pullDataFromGoogleSheet(
             '1on0wFpfZ4dqV63bcfb6Xx1klFAV6P9LXqh-BI7G9luM',
             'Main Sheet',
@@ -89,9 +90,19 @@ class ImportDataFromGoogle extends Command
                 continue;
             }
 
+            echo 'Processing ' . trim($element[1]) . PHP_EOL;
+
             $compiledAddress = $this->getCompiledAddress($element);
+
+            echo 'Requesting coordinates...' . PHP_EOL;
+
             $coordinates = $this->getCoordinates($compiledAddress);
+
+            echo 'Saving...' . PHP_EOL;
+
             $this->saveData($element, $compiledAddress, $coordinates);
+
+            echo PHP_EOL;
         }
     }
 
@@ -104,12 +115,13 @@ class ImportDataFromGoogle extends Command
      */
     protected function saveData(array $element, string $compiledAddress, array $coordinates)
     {
-        $place = Place::firstOrNew([
+        $place = Place::firstOrCreate([
             'id' => trim($element[0]),
             'name' => trim($element[1]),
-            'address' => trim($compiledAddress),
             'tel' => trim($element[8]),
-            'email' => trim($element[10]),
+            'email' => trim($element[10])
+        ], [
+            'address' => trim($compiledAddress),
             'category' => trim($element[4])
         ]);
 
